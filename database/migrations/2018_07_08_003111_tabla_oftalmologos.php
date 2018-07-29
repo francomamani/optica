@@ -20,8 +20,6 @@ class TablaOftalmologos extends Migration
                   ->references('id')
                   ->on('users')
                   ->onDelete('cascade');
-            $table->string('nombres');
-            $table->string('apellidos');
             $table->string('nit');
             $table->string('celular');
             $table->softDeletes();

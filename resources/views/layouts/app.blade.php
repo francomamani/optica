@@ -44,9 +44,6 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Iniciar sesion') }}</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('register') }}">{{ __('Registrar') }}</a>
-                            </li>
                         @else
                             <li class="nav-item dropdown">
                                 <a id="opticas-menu"
@@ -61,10 +58,34 @@
                                 <div class="dropdown-menu dropdown-menu-right"
                                      aria-labelledby="opticas-menu">
                                     <a class="dropdown-item" href="{{ route('optica.index') }}"> Listar</a>
-                                    <a class="dropdown-item" href="{{ route('optica.create') }}"> Registrar</a>
+                                    @if(Auth::user()->tipo_usuario === 'administrador')
+                                        <a class="dropdown-item" href="{{ route('optica.create') }}"> Registrar</a>
+                                    @endif
                                 </div>
                             </li>
+                            <li class="nav-item dropdown">
+                                <a id="oftalmologo-menu"
+                                   class="nav-link dropdown-toggle"
+                                   href="#" role="button"
+                                   data-toggle="dropdown"
+                                   aria-haspopup="true"
+                                   aria-expanded="false" v-pre>
+                                    Oftalmologos<span class="caret"></span>
+                                </a>
 
+                                <div class="dropdown-menu dropdown-menu-right"
+                                     aria-labelledby="oftalmologo-menu">
+                                    <a class="dropdown-item" href="{{ route('oftalmologo.index') }}"> Listar</a>
+                                    @if(Auth::user()->tipo_usuario === 'administrador')
+                                        <a class="dropdown-item" href="{{ route('oftalmologo.create') }}"> Registrar</a>
+                                    @endif
+                                </div>
+                            </li>
+                        @if(Auth::user()->tipo_usuario === 'administrador')
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('register') }}">{{ __('Registrar') }}</a>
+                            </li>
+                        @endif
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->apellido_paterno }}

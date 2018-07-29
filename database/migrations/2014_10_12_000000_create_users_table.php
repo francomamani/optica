@@ -21,6 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('cuenta')->unique();
             $table->string('email')->unique();
             $table->string('password');
+            $table->enum('tipo_usuario', ['oftalmologo', 'administrador', 'recepcionista']);
             $table->softDeletes();
             $table->rememberToken();
             $table->timestamps();

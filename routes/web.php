@@ -25,6 +25,10 @@ Route::post('opticas', 'OpticaController@store')->name('optica.store');
 Route::put('optica/{id}', 'OpticaController@update')->name('optica.update');
 Route::delete('optica/{id}', 'OpticaController@destroy')->name('optica.destroy');
 
+Route::get('oftalmologos', 'OftalmologoController@index')->name('oftalmologo.index');
+Route::get('oftalmologo', 'OftalmologoController@create')->name('oftalmologo.create');
+Route::post('oftalmologos', 'OftalmologoController@store')->name('oftalmologo.store');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

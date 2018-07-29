@@ -10,6 +10,15 @@
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}" aria-label="{{ __('Register') }}">
                         @csrf
+                        <div class="form-group row">
+                            <label class="col-md-4 col-form-label text-md-right" for="rol">Elige el rol de usuario</label>
+                            <div class="col-md-6">
+                                <select name="rol" id="rol" class="form-control">
+                                    <option value="recepcionista">Recepcionista</option>
+                                    <option value="administrador">Administrador</option>
+                                </select>
+                            </div>
+                        </div>
 
                         <div class="form-group row">
                             <label for="nombres" class="col-md-4 col-form-label text-md-right">{{ __('Nombres') }}</label>

@@ -11,8 +11,6 @@ class Oftalmologo extends Model
     protected $table = 'oftalmologos';
     protected $fillable = [
         'user_id',
-        'nombres',
-        'apellidos',
         'nit',
         'celular',
     ];

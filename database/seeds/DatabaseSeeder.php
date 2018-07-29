@@ -33,6 +33,7 @@ class DatabaseSeeder extends Seeder
             'cuenta' => 'franco',
             'email' => 'mamamanipozofrancojesus@gmail.com',
             'password' => bcrypt('franco'),
+            'tipo_usuario' => 'administrador',
         ]);
         User::create([
             'nombres' => 'Daniela',
@@ -41,28 +42,7 @@ class DatabaseSeeder extends Seeder
             'cuenta' => 'daniela',
             'email' => 'daniela@gmail.com',
             'password' => bcrypt('daniela'),
-        ]);
-        Oftalmologo::create([
-            'user_id' => 1,
-            'nombres' => 'Franco Jesus',
-            'apellidos' => 'Mamani Pozo',
-            'nit' => '72750458016',
-            'celular' => '76137653',
-        ]);
-        Oftalmologo::create([
-            'user_id' => 2,
-            'nombres' => 'Daniela',
-            'apellidos' => 'Chumacero Perez',
-            'nit' => '72512606016',
-            'celular' => '761356423',
-        ]);
-        OftalmologoOptica::create([
-            'oftalmologo_id' => 1,
-            'optica_id' => 1,
-        ]);
-        OftalmologoOptica::create([
-            'oftalmologo_id' => 2,
-            'optica_id' => 2,
+            'tipo_usuario' => 'recepcionista',
         ]);
         // $this->call(UsersTableSeeder::class);
     }

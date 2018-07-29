@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Administrador;
+use App\Oftalmologo;
+use App\Recepcionista;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
@@ -28,7 +31,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+//    protected $redirectTo = '/home';
 
     /**
      * Create a new controller instance.
@@ -37,7 +40,7 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest');
+        $this->middleware('auth');
     }
 
     /**
@@ -66,13 +69,30 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $usuario = User::create([
             'nombres' => $data['nombres'],
             'apellido_paterno' => $data['apellido_paterno'],
             'apellido_materno' => $data['apellido_materno'],
             'cuenta' => $data['cuenta'],
             'email' => $data['email'],
+            'tipo_usuario' => $data['rol'],
             'password' => Hash::make($data['password']),
         ]);
+
+        $rol = $data['rol'];
+        switch ($rol) {
+            case 'recepcionista' :
+                Recepcionista::create([
+                    'user_id' => $usuario->id
+                ]);
+                break;
+            case 'administrador' :
+                Administrador::create([
+                    'user_id' => $usuario->id
+                ]);
+                break;
+        }
+        return $usuario;
+
     }
 }
