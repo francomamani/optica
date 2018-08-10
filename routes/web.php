@@ -32,3 +32,16 @@ Route::post('oftalmologos', 'OftalmologoController@store')->name('oftalmologo.st
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+//mostrar la tabla
+Route::get('documentos', 'DocumentoController@index')->name('documento.index');
+
+Route::get('documento', 'DocumentoController@create')->name('documento.create');
+Route::post('documentos', 'DocumentoController@store')->name('documento.store');
+Route::post('descargar-documento/{documento_id}', 'DocumentoController@descargarDocumento');
+
+
+
+
+
+

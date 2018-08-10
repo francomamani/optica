@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Oftalmologo;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Validator;
 class OftalmologoController extends Controller
 {
@@ -107,4 +108,29 @@ class OftalmologoController extends Controller
     {
         //
     }
+
+    public function listarOftalmologos(){
+        $oftalmologos = User::join('oftalmologos', 'users.id', '=', 'oftalmologos.user_id')
+                            ->select('oftalmologos.id as oftalmologo_id',
+                                     'user_id', 'user_id',
+                                     'nombres', 'apellido_paterno',
+                                     'apellido_materno', 'nit', 'celular')
+                            ->get();
+        return response()->json($oftalmologos, 200);
+    }
+
+    public function diagnosticosOftalmologo() {
+        // nombre completo 1 | 5
+        // nombre completo 2 | 7
+        $diagnosticos = User::join('oftalmologos', 'users.id', 'oftalmologos.user_id')
+            ->join('diagnosticos', 'oftalmologos.id', 'diagnosticos.oftalmologo_id')
+            ->select(DB::raw('users.apellido_paterno, count( concepto ) as cantidad'))
+            ->groupBy('users.apellido_paterno')
+            ->havingRaw('count( concepto ) > ?', [1])
+            ->get();
+        return response()->json($diagnosticos, 200);
+
+    }
+
+
 }

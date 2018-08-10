@@ -20,6 +20,12 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 //localhost:8000/api/optica-eliminar/1
 Route::get('opticas', 'OpticaController@listar');
 Route::delete('optica-eliminar/{id}', 'OpticaController@destroy');
+Route::get('listar-oftalmologos', 'OftalmologoController@listarOftalmologos');
+Route::get('diagnosticos-oftalmologos', 'OftalmologoController@diagnosticosOftalmologo');
+
+Route::post('subir-documento', 'DocumentoController@store');
+Route::get('recuperar-documento/{documento_id}', 'DocumentoController@recuperarDocumento');
+Route::get('descargar-documento/{documento_id}', 'DocumentoController@descargarDocumento');
 
 
 
