@@ -39,6 +39,10 @@ Route::get('documentos', 'DocumentoController@index')->name('documento.index');
 Route::get('documento', 'DocumentoController@create')->name('documento.create');
 Route::post('documentos', 'DocumentoController@store')->name('documento.store');
 Route::post('descargar-documento/{documento_id}', 'DocumentoController@descargarDocumento');
+/* generar pdf */
+Route::get('reportes', 'ClienteController@reportes');
+Route::post('generar-pdf', 'ClienteController@generarPDF');
+
 
 
 
