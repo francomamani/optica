@@ -152,6 +152,7 @@ return [
          */
         Collective\Html\HtmlServiceProvider::class,
         Anouar\Fpdf\FpdfServiceProvider::class,
+        Khill\Lavacharts\Laravel\LavachartsServiceProvider::class,
         /*
          * Application Service Providers...
          */
@@ -212,6 +213,7 @@ return [
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
         'Fpdf' => Anouar\Fpdf\Facades\Fpdf::class,
+        'Lava' => Khill\Lavacharts\Laravel\LavachartsFacade::class,
     ],
 
 ];

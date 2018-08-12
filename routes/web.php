@@ -45,6 +45,9 @@ Route::post('generar-pdf', 'ClienteController@generarPDF');
 
 
 
+Route::get('diagnosticos-chart', 'ChartController@pie');
+
+
 
 
 

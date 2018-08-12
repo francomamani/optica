@@ -27,7 +27,7 @@ Route::post('subir-documento', 'DocumentoController@store');
 Route::get('recuperar-documento/{documento_id}', 'DocumentoController@recuperarDocumento');
 Route::get('descargar-documento/{documento_id}', 'DocumentoController@descargarDocumento');
 
-
+Route::get('pie', 'ChartController@pie');
 
 
 
