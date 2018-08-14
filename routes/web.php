@@ -46,7 +46,9 @@ Route::post('generar-pdf', 'ClienteController@generarPDF');
 
 
 Route::get('diagnosticos-chart', 'ChartController@pie');
-
+Route::get('backup', 'BackupController@create');
+Route::post('crear-backup', 'BackupController@crearBackup');
+Route::post('enviar', 'CorreoController@enviar');
 
 
 

@@ -153,6 +153,7 @@ return [
         Collective\Html\HtmlServiceProvider::class,
         Anouar\Fpdf\FpdfServiceProvider::class,
         Khill\Lavacharts\Laravel\LavachartsServiceProvider::class,
+        Backup\BackupServiceProvider::class,
         /*
          * Application Service Providers...
          */
